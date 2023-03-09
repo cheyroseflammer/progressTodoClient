@@ -1,13 +1,59 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: 'Poppins', san-serif;
+  background-image: url(../assets/grain.png);
+  background-repeat: repeat;
+  color: #e2e2d7;
+  display: flex;
+  justify-content: center;
+}
+
+.app {
+  background-color: #6868682a;
+  box-shadow: rgb(26, 26, 26) 0 6px 24px, rgba(99, 99, 99, 0.8) 0 0 0 1px;
+  border-radius: 10px;
+  padding: 10px;
+  width: 800px;
+  margin-top: 50px;
+}
+
+.list-header h1 {
+  font-weight: 100;
+}
+.list-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+}
+.button-container button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border-radius: 12px;
+  background-color: transparent;
+  font-weight: 700;
+}
+button.create:hover {
+  background-color: #00aa5533;
+}
+button.create {
+  color: #00d26a;
+  border: #00d26a 2px solid;
+}
+button.signout:hover {
+  background-color: #d4341f3a;
+}
+button.signout {
+  color: #d4351f;
+  border: #d4351f 2px solid;
 }
