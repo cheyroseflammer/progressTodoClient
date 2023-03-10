@@ -26,7 +26,7 @@ body {
 }
 
 .list-header h1 {
-  font-weight: 100;
+  font-weight: 600;
 }
 .list-header {
   width: 100%;
@@ -47,7 +47,7 @@ body {
   padding: 5px 10px;
   border-radius: 12px;
   background-color: transparent;
-  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
 }
 button.create:hover {
   background-color: #00d26a3a;
@@ -111,6 +111,12 @@ button.edit:active {
 h2.task-title,
 p.task-desc {
   margin-left: 10px;
+}
+h2.task-title {
+  font-weight: 300;
+}
+p.task-desc {
+  font-weight: 100;
 }
 .info-container {
   width: 100%;
@@ -188,4 +194,11 @@ input {
   border: 2px solid #e2e2d7;
   background-color: #1a1a1a;
   font-family: 'Poppins', san-serif;
+}
+
+@media screen and (max-width: 768px) {
+  .app {
+    width: 80%;
+    margin: auto;
+  }
 }

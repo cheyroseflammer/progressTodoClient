@@ -6,7 +6,7 @@ const Modal = ({ mode, setShowModal, todo, getData }) => {
     user_email: editMode ? todo.user_email : 'user1@test.com',
     title: editMode ? todo.title : null,
     description: editMode ? todo.description : null,
-    date: editMode ? '' : new Date(),
+    date: editMode ? todo.date : new Date(),
   });
   const handleChange = (e) => {
     e.preventDefault();
@@ -39,8 +39,20 @@ const Modal = ({ mode, setShowModal, todo, getData }) => {
   const putData = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/todos/');
-    } catch {}
+      const response = await fetch(`http://localhost:5000/todos/${todo.todo_id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ data }),
+      });
+      console.log(data);
+      if (response.status === 201) {
+        console.log('Todo updated sucessfully');
+        setShowModal(false);
+        getData();
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
