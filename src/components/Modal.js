@@ -39,13 +39,15 @@ const Modal = ({ mode, setShowModal, todo, getData }) => {
   const putData = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:5000/todos/${todo.todo_id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ data }),
-      });
-      console.log(data);
-      if (response.status === 201) {
+      const response = await fetch(
+        `http://localhost:5000/todos/${todo.user_email}/${todo.todo_id}`,
+        {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ data }),
+        }
+      );
+      if (response.status === 200) {
         console.log('Todo updated sucessfully');
         setShowModal(false);
         getData();
