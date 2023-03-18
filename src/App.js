@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import ListHeader from './components/ListHeader';
 import ListItem from './components/ListItem';
+import Auth from './components/Auth';
 
 const App = () => {
+  console.log(process.env.REACT_API_URL);
   const [todos, setTodos] = useState(null);
+  const authToken = true;
   const getData = async () => {
     const userEmail = 'user1@test.com';
     try {
@@ -15,8 +18,11 @@ const App = () => {
     }
   };
 
-  useEffect(() => {
-    getData();
+  useEffect((authToken) => {
+    if (authToken) {
+      getData();
+      console.log('I am being reached');
+    }
   }, []);
 
   // Sort todo by date
@@ -24,10 +30,15 @@ const App = () => {
 
   return (
     <div className='app'>
-      <ListHeader listName={'✅ Progress Tick List'} getData={getData} />
-      {sortedTodos?.map((todo, index) => (
-        <ListItem todo={todo} key={index} getData={getData} />
-      ))}
+      {!authToken && <Auth />}
+      {authToken && (
+        <>
+          <ListHeader listName={'✅ Progress Tick List'} getData={getData} />
+          {sortedTodos?.map((todo, index) => (
+            <ListItem todo={todo} key={index} getData={getData} />
+          ))}
+        </>
+      )}
     </div>
   );
 };

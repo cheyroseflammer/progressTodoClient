@@ -196,8 +196,41 @@ input {
   font-family: 'Poppins', san-serif;
 }
 
+.auth-container {
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+}
+
+.auth-container-box {
+  width: 500px;
+  overflow: hidden;
+}
+
+.auth-container-box form {
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  padding: 20px;
+}
+.auth-container-box h2 {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.auth-options {
+  display: flex;
+}
+.auth-options button {
+  width: 50%;
+  border: none;
+  padding: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
 @media screen and (max-width: 768px) {
   .app {
+    top: 20%;
     width: 80%;
     margin: auto;
   }

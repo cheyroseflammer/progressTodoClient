@@ -86,7 +86,7 @@ const deleteData = async (e) => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `http://localhost:5000/todos/${todo.user_email}/${todo.todo_id}`,
+        `API_URL/${todo.user_email}/${todo.todo_id}`,
         {
           method: 'DELETE',
         }
