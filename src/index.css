@@ -210,7 +210,7 @@ input {
 .auth-container-box form {
   display: flex;
   flex-direction: column;
-  height: 350px;
+  height: 400px;
   padding: 20px;
 }
 .auth-container-box h2 {
@@ -226,6 +226,10 @@ input {
   border: none;
   padding: 10px;
   font-family: 'Poppins', sans-serif;
+}
+
+.error {
+  color: red;
 }
 
 @media screen and (max-width: 768px) {

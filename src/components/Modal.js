@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useCookies } from 'react-cookie';
 
 const Modal = ({ mode, setShowModal, todo, getData }) => {
+  const [cookies, setCookie, removeCookie] = useCookies(null);
   const editMode = mode === 'edit' ? true : false;
   const [data, setData] = useState({
-    user_email: editMode ? todo.user_email : 'user1@test.com',
+    user_email: editMode ? todo.user_email : cookies.Email,
     title: editMode ? todo.title : null,
     description: editMode ? todo.description : null,
     date: editMode ? todo.date : new Date(),
@@ -71,7 +73,8 @@ const Modal = ({ mode, setShowModal, todo, getData }) => {
             maxLength={30}
             placeholder='Your todo title'
             name='title'
-            value={data.title}
+            //  added or '' for test cases
+            value={data.title || ''}
             onChange={handleChange}
           />
           <input
@@ -79,7 +82,8 @@ const Modal = ({ mode, setShowModal, todo, getData }) => {
             maxLength={255}
             placeholder='Your todo description'
             name='description'
-            value={data.description}
+            //  added or '' for test cases
+            value={data.description || ''}
             onChange={handleChange}
           />
           <input

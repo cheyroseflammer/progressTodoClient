@@ -1,8 +1,8 @@
-# Todos App Client
+# Todos App Client ☑️
 
 This is a CRA manipulating data from an Express API backend connected to a PostgreSQL database.
 
-## Starting the project
+## Starting the project 🚀
 
 Clone App: `git clone https://github.com/cheyroseflammer/progressTodoClient.git`
 
@@ -12,9 +12,27 @@ Tests: `npm test` (all tests should pass)
 
 Start client: `npm start`
 
-## Data Fetching
+## User Stories 👤
 
-**Get Data**
+### _As a user I should be able to:_
+
+✅ Done
+
+- sign up
+- login
+- signout
+- post a new todo
+- edit an existing todo
+- delete a todo
+
+🟨 In Progress
+
+- check a todo off as done
+- see my progress bar fill up as I check off tasks
+
+## Data Fetching 🌐
+
+**Get Data** 🟢
 
 ```
   const getData = async () => {
@@ -32,7 +50,7 @@ Start client: `npm start`
   }, []);
 ```
 
-**Post Data**
+**Post Data** 🟢
 
 ```
   const postData = async (e) => {
@@ -54,7 +72,7 @@ Start client: `npm start`
 
 ```
 
-**Put Data**
+**Put Data** 🟡
 
 ```
   const putData = async (e) => {
@@ -79,7 +97,7 @@ Start client: `npm start`
 
 ```
 
-**Delete Data**
+**Delete Data** 🔴
 
 ```
 const deleteData = async (e) => {

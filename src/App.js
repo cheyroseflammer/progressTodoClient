@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import ListHeader from './components/ListHeader';
 import ListItem from './components/ListItem';
 import Auth from './components/Auth';
+import { useCookies } from 'react-cookie';
 
 const App = () => {
-  console.log(process.env.REACT_API_URL);
+  const [cookies, setCookie, removeCookie] = useCookies(null);
   const [todos, setTodos] = useState(null);
-  const authToken = true;
+  const authToken = cookies.AuthToken;
+  const userEmail = cookies.Email;
   const getData = async () => {
-    const userEmail = 'user1@test.com';
     try {
       const response = await fetch(`http://localhost:5000/todos/${userEmail}`);
       const json = await response.json();
@@ -17,17 +18,13 @@ const App = () => {
       console.log(error);
     }
   };
-
-  useEffect((authToken) => {
+  useEffect(() => {
     if (authToken) {
       getData();
-      console.log('I am being reached');
     }
   }, []);
-
   // Sort todo by date
   const sortedTodos = todos?.sort((a, b) => new Date(a.date) - new Date(b.date));
-
   return (
     <div className='app'>
       {!authToken && <Auth />}

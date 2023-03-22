@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import TickIcon from './TickIcon';
 import Modal from './Modal';
+// import Auth from './Auth';
 
 const ListItem = ({ todo, getData }) => {
   const deleteData = async (e) => {
