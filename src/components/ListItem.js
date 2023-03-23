@@ -4,15 +4,13 @@ import Modal from './Modal';
 // import Auth from './Auth';
 
 const ListItem = ({ todo, getData }) => {
+  const KEY = process.env.REACT_APP_API_URL;
   const deleteData = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(
-        `http://localhost:5000/todos/${todo.user_email}/${todo.todo_id}`,
-        {
-          method: 'DELETE',
-        }
-      );
+      const response = await fetch(`${KEY}/${todo.user_email}/${todo.todo_id}`, {
+        method: 'DELETE',
+      });
       if (response.status === 204) {
         console.log('todo deleted successfully');
         getData();

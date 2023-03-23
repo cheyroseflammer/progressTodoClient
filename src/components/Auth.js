@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { useCookies } from 'react-cookie';
 
 const Auth = () => {
+  const KEY = process.env.REACT_APP_API_URL;
   const [cookies, setCookie, removeCookie] = useCookies(null);
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState(null);
   const [error, setError] = useState(null);
-
   const viewLogin = (status) => {
     setError(null);
     setIsLoggedIn(status);
@@ -19,7 +19,7 @@ const Auth = () => {
       setError('Make sure passwords match!');
       return;
     }
-    const response = await fetch(`http://localhost:5000/${endpoint}`, {
+    const response = await fetch(`${KEY}/${endpoint}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ data: { email: email, hashed_password: password } }),

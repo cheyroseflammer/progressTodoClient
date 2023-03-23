@@ -3,6 +3,7 @@ import ListHeader from './components/ListHeader';
 import ListItem from './components/ListItem';
 import Auth from './components/Auth';
 import { useCookies } from 'react-cookie';
+const KEY = process.env.REACT_APP_API_URL;
 
 const App = () => {
   const [cookies, setCookie, removeCookie] = useCookies(null);
@@ -11,7 +12,7 @@ const App = () => {
   const userEmail = cookies.Email;
   const getData = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/todos/${userEmail}`);
+      const response = await fetch(`${KEY}/${userEmail}`);
       const json = await response.json();
       setTodos(json.data);
     } catch (error) {
