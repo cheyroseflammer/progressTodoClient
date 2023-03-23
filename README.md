@@ -18,12 +18,13 @@ Start client: `npm start`
 
 ✅ Done
 
-- sign up
-- login
-- signout
-- post a new todo
-- edit an existing todo
-- delete a todo
+**Sign Up** - High Priority 🔴
+
+![signup-gif](assets/signup.gif)
+
+**Create New Todo** - High Priority 🔴
+
+![new-todo](assets/newTodo.gif)
 
 🟨 In Progress
 
