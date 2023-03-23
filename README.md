@@ -26,10 +26,27 @@ Start client: `npm start`
 
 ![new-todo](assets/newTodo.gif)
 
+**Delete Todo** - High Priority 🔴
+
+![delete-todo](assets/delete.gif)
+
+**Edit Todo** - High Priority 🔴
+
+![edit-todo](assets/edit.gif)
+
+**Sign Out** - High Priority 🔴
+
+![signout](assets/signout.gif)
+
+**Login** - High Priority 🔴
+
+![login](assets/login.gif)
+
 🟨 In Progress
 
-- check a todo off as done
-- see my progress bar fill up as I check off tasks
+**Check Todo Off** - Low Priority 🟡
+
+**See progress bar** - Low Priority 🟡
 
 ## Data Fetching 🌐
 
