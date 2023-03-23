@@ -18,35 +18,35 @@ Start client: `npm start`
 
 ✅ Done
 
-**Sign Up** - High Priority 🔴
+- **Sign Up** - High Priority 🔴
 
 ![signup-gif](assets/signup.gif)
 
-**Create New Todo** - High Priority 🔴
+- **Create New Todo** - High Priority 🔴
 
 ![new-todo](assets/newTodo.gif)
 
-**Delete Todo** - High Priority 🔴
+- **Delete Todo** - High Priority 🔴
 
 ![delete-todo](assets/delete.gif)
 
-**Edit Todo** - High Priority 🔴
+- **Edit Todo** - High Priority 🔴
 
 ![edit-todo](assets/edit.gif)
 
-**Sign Out** - High Priority 🔴
+- **Sign Out** - High Priority 🔴
 
 ![signout](assets/signout.gif)
 
-**Login** - High Priority 🔴
+- **Login** - High Priority 🔴
 
 ![login](assets/login.gif)
 
 🟨 In Progress
 
-**Check Todo Off** - Low Priority 🟡
+- **Check Todo Off** - Low Priority 🟡
 
-**See progress bar** - Low Priority 🟡
+- **See progress bar** - Low Priority 🟡
 
 ## Data Fetching 🌐
 
