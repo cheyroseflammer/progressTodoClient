@@ -24,7 +24,7 @@ const Modal = ({ mode, setShowModal, todo, getData }) => {
   const postData = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(KEY, {
+      const response = await fetch(`${KEY}/todos`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ data }),
@@ -42,7 +42,7 @@ const Modal = ({ mode, setShowModal, todo, getData }) => {
   const putData = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${KEY}/${todo.user_email}/${todo.todo_id}`, {
+      const response = await fetch(`${KEY}/todos/${todo.user_email}/${todo.todo_id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ data }),

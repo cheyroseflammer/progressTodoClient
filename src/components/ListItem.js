@@ -8,9 +8,10 @@ const ListItem = ({ todo, getData }) => {
   const deleteData = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${KEY}/${todo.user_email}/${todo.todo_id}`, {
+      const response = await fetch(`${KEY}/todos/${todo.user_email}/${todo.todo_id}`, {
         method: 'DELETE',
       });
+      console.log(response);
       if (response.status === 204) {
         console.log('todo deleted successfully');
         getData();

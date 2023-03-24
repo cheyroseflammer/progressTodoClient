@@ -12,7 +12,7 @@ const App = () => {
   const userEmail = cookies.Email;
   const getData = async () => {
     try {
-      const response = await fetch(`${KEY}/${userEmail}`);
+      const response = await fetch(`${KEY}/todos/${userEmail}`);
       const json = await response.json();
       setTodos(json.data);
     } catch (error) {
