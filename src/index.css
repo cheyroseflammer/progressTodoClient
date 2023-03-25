@@ -12,26 +12,25 @@ body {
   color: #e2e2d7;
   display: flex;
   justify-content: center;
-  height: 100vh;
+  height: 100%;
+  width: 95%;
 }
 
 .app {
   background-color: #2424242a;
   box-shadow: rgb(26, 26, 26) 0 6px 22px, rgba(99, 99, 99, 0.4) 0 0 12px 1px;
   border-radius: 10px;
-  padding: 10px;
   margin-top: 50px;
-  width: 100%;
   position: relative;
+  height: 100%;
 }
 
 .list-header h1 {
   font-weight: 600;
 }
 .list-header {
-  width: 100%;
-  padding: 10px 0;
-  margin: auto;
+  margin: 10px 20px;
+  padding: 10px 15px;
   display: flex;
   justify-content: space-between;
   border-bottom: 2px solid rgba(255, 255, 255, 0.5);
@@ -99,8 +98,8 @@ button.edit:active {
 }
 
 .list-item {
-  margin: 10px 0;
-  padding: 10px 5px;
+  margin: 10px 20px;
+  padding: 10px 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -143,9 +142,9 @@ p.task-desc {
 
 .overlay {
   position: absolute;
-  height: 100vh;
+  height: 100%;
   width: 100%;
-  top: 0;
+  top: 20;
   left: 0;
   display: flex;
   align-items: center;
@@ -236,7 +235,7 @@ input {
 @media screen and (max-width: 768px) {
   .app {
     top: 10%;
-    width: 95vw;
+    width: 100%;
     margin: auto;
   }
   .list-header {
@@ -252,25 +251,32 @@ input {
   .button-container {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
   .list-item {
     display: flex;
     flex-direction: column;
   }
   .tick {
-    align-self: baseline;
-    padding: 5px 0px 0px 5px;
+    display: none;
   }
   .info-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding-bottom: 10px;
-    text-align: justify;
+  }
+  .task-title,
+  .edit,
+  .create {
+    width: 40%;
+  }
+  .task-desc,
+  .delete,
+  .signout {
+    width: 60%;
   }
   .auth-container-box {
-    width: 90vw;
+    width: 90%;
   }
   .auth-container-box form {
     height: 300px;
