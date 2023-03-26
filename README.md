@@ -2,6 +2,10 @@
 
 This is a CRA manipulating data from an Express API backend connected to a PostgreSQL database.
 
+**Server Documentation:** `https://github.com/cheyroseflammer/progressTodoServer/blob/main/README.md`
+
+**Live Site:** `https://progress-todo-app.vercel.app`
+
 ## Starting the project 🚀
 
 Clone App: `git clone https://github.com/cheyroseflammer/progressTodoClient.git`

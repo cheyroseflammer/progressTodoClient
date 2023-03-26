@@ -86,6 +86,7 @@ const Modal = ({ mode, setShowModal, todo, getData }) => {
           />
           <input
             className={mode}
+            id='sumbit-button'
             type='submit'
             value='submit'
             onClick={editMode ? putData : postData}

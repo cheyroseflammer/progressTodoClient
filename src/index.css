@@ -1,19 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-* {
+body {
   margin: 0;
   padding: 0;
-}
-
-body {
+  box-sizing: border-box;
   font-family: 'Poppins', san-serif;
   background-image: url(../assets/grain.png);
   background-repeat: repeat;
   color: #e2e2d7;
   display: flex;
   justify-content: center;
-  height: 100%;
-  width: 95%;
+  height: 100vh;
 }
 
 .app {
@@ -21,8 +18,8 @@ body {
   box-shadow: rgb(26, 26, 26) 0 6px 22px, rgba(99, 99, 99, 0.4) 0 0 12px 1px;
   border-radius: 10px;
   margin-top: 50px;
-  position: relative;
-  height: 100%;
+  width: 100%;
+  padding-bottom: 50px;
 }
 
 .list-header h1 {
@@ -275,11 +272,21 @@ input {
   .signout {
     width: 60%;
   }
-  .auth-container-box {
-    width: 90%;
+  .modal {
+    width: 370px;
+  }
+  .task-title {
+    margin: 0;
+  }
+  .info-container {
+    height: 100%;
+  }
+  .auth-container {
+    width: 370px;
   }
   .auth-container-box form {
-    height: 300px;
+    width: 100%;
     padding: 0;
+    height: 300px;
   }
 }
