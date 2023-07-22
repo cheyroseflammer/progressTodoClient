@@ -71,6 +71,7 @@ const Modal = ({ mode, setShowModal, todo, getData }) => {
             maxLength={30}
             placeholder='Your todo title'
             name='title'
+            id='title'
             //  added or '' for test cases
             value={data.title || ''}
             onChange={handleChange}
@@ -83,6 +84,7 @@ const Modal = ({ mode, setShowModal, todo, getData }) => {
             //  added or '' for test cases
             value={data.description || ''}
             onChange={handleChange}
+            id='description'
           />
           <input
             className={mode}
