@@ -57,6 +57,18 @@ button.create:active {
   color: #87ffc3;
   border: #87ffc3 2px solid;
 }
+button.create-new:hover {
+  background-color: #00d26a3a;
+}
+button.create-new {
+  color: #00d26a;
+  border: #00d26a 2px solid;
+}
+button.create-new:active {
+  background-color: #87ffc391;
+  color: #87ffc3;
+  border: #87ffc3 2px solid;
+}
 button.signout:hover {
   background-color: #d48c1f3a;
 }
@@ -264,7 +276,8 @@ input {
   }
   .task-title,
   .edit,
-  .create {
+  .create,
+  .create-new {
     width: 40%;
   }
   .task-desc,
