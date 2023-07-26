@@ -26,27 +26,27 @@ Start client: `npm start`
 
 - **Sign Up** - High Priority 🔴
 
-![signup-gif](/client/public/assets/signup.gif)
+![signup-gif](public/assets/signup.gif)
 
 - **Create New Todo** - High Priority 🔴
 
-![new-todo](/client/public/assets/newTodo.gif)
+![new-todo](public/assets/newTodo.gif)
 
 - **Delete Todo** - High Priority 🔴
 
-![delete-todo](/client/public/assets/delete.gif)
+![delete-todo](public/assets/delete.gif)
 
 - **Edit Todo** - High Priority 🔴
 
-![edit-todo](/client/public/assets/edit.gif)
+![edit-todo](public/assets/edit.gif)
 
 - **Sign Out** - High Priority 🔴
 
-![signout](/client/public/assets/signout.gif)
+![signout](public/assets/signout.gif)
 
 - **Login** - High Priority 🔴
 
-![login](/client/public/assets/login.gif)
+![login](public/assets/login.gif)
 
 🟨 In Progress
 
@@ -148,12 +148,12 @@ Tests include:
 - ✅ edit should cancel when interacting with close X
 - ✅ app should allow for todos to be deleted
 
-![playwright-tests](/client/public/assets/tests.png)
+![playwright-tests](public/assets/tests.png)
 
 ## Component Render Tests with React Testing Library
 
 RTL was used to assert the presence of components and their data.
 
-![rtl-tests](/client/public/assets/rtl-tests.png)
+![rtl-tests](public/assets/rtl-tests.png)
 
 ## CI/CD with Github Actions

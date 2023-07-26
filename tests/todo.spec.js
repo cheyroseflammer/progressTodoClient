@@ -41,10 +41,11 @@ test.describe('New Todo', () => {
     await expect(page.locator('h2[class="task-title"]').nth(1)).toHaveText(TODO_ITEMS[1].title);
     // assert description text matches
     await expect(page.locator('p[class="task-desc"]').nth(1)).toHaveText(TODO_ITEMS[1].desc);
+    // clear state
+    await deleteAllTodos(page);
   });
   // modal should close when todo is added
   test('modal should close when hitting submit', async ({ page }) => {
-    // clear state
     await deleteAllTodos(page);
     await page.locator("button[class='create-new']").click();
     // grab title input element
@@ -60,13 +61,10 @@ test.describe('New Todo', () => {
     // grab modal
     const modal_el = page.locator("div[class='modal']");
     // check its gone
-    await expect(modal_el).toBeHidden();
-    // delete
+    await expect(modal_el).toBeHidden({ timeout: 3000 });
+    await deleteAllTodos(page);
   });
   test('should append to bottom of list', async ({ page }) => {
-    // clear state  before next test
-    await deleteAllTodos(page);
-    // readd todos for test
     // grab title input element
     const new_todo_title = page.getByPlaceholder('Your todo title');
     // grab description input element
@@ -89,6 +87,7 @@ test.describe('New Todo', () => {
     await expect(page.locator('h2[class="task-title"]').nth(1)).toHaveText(TODO_ITEMS[1].title);
     // assert description text matches
     await expect(page.locator('p[class="task-desc"]').nth(1)).toHaveText(TODO_ITEMS[1].desc);
+    await deleteAllTodos(page);
   });
   test('should trim whitespace', async ({ page }) => {
     await deleteAllTodos(page);
@@ -109,12 +108,12 @@ test.describe('New Todo', () => {
     await page.locator('input[id="sumbit-button"]').click();
     await expect(expect_title).toHaveText('Wash the car!');
     await expect(expected_desc).toHaveText('Ubering wednesday');
+    await deleteAllTodos(page);
   });
 });
 // test editing todos
 test.describe('Editing todos', () => {
   test('@smoke - should be able to edit todos', async ({ page }) => {
-    await deleteAllTodos(page);
     await addDefaultTodos(page);
     const second_todo_title = page.locator("h2[class='task-title']").nth(2);
     const second_todo_desc = page.locator("p[class='task-desc']").nth(2);
@@ -134,9 +133,22 @@ test.describe('Editing todos', () => {
   });
   test('edit should cancel when hitting x', async ({ page }) => {
     await deleteAllTodos(page);
-    await addDefaultTodos(page);
-    const todo_title = await page.locator("h2[class='task-title']").first();
-    const todo_desc = await page.locator("p[class='task-desc']").first();
+    // grab title input element
+    const new_todo_title = page.getByPlaceholder('Your todo title');
+    // grab description input element
+    const new_todo_desc = page.getByPlaceholder('Your todo description');
+    // click the create button
+    page.locator("button[class='create-new']").click();
+    // fill title input with first title in array
+    await new_todo_title.fill(TODO_ITEMS[0].title);
+    // fill description input with first description in array
+    await new_todo_desc.fill(TODO_ITEMS[0].desc);
+    // click submit todo
+    page.locator('input[id="sumbit-button"]').click();
+    // grab elements
+    const todo_title = page.locator("h2[class='task-title']").first();
+    const todo_desc = page.locator("p[class='task-desc']").first();
+    // edit
     const todo_btn = page.locator('button[class="edit"]').first();
     await todo_btn.click();
     // grab place holders
@@ -150,22 +162,23 @@ test.describe('Editing todos', () => {
     await page.getByRole('button', { name: 'x' }).click();
     await expect(todo_title).toHaveText(TODO_ITEMS[0].title);
     await expect(todo_desc).toHaveText(TODO_ITEMS[0].desc);
+    await deleteAllTodos(page);
   });
 });
 test.describe('Deleting todos', () => {
   test('@smoke - should be able to delete all todos.', async ({ page }) => {
-    await deleteAllTodos(page);
     await addDefaultTodos(page);
-    const delete_buttons = page.locator("button[class='delete']");
+    const delete_buttons = await page.locator("button[class='delete']");
     for (let i = 0; i < (await delete_buttons.count()); i++) {
       await delete_buttons.nth(i).click();
     }
+    await page.waitForTimeout(1000);
   });
 });
 
 // delete todos function
 async function deleteAllTodos(page) {
-  const delete_buttons = page.locator("button[class='delete']");
+  const delete_buttons = await page.locator("button[class='delete']");
   for (let i = 0; i < (await delete_buttons.count()); i++) {
     await delete_buttons.nth(i).click();
   }
@@ -173,7 +186,7 @@ async function deleteAllTodos(page) {
 }
 // add default todos function
 async function addDefaultTodos(page) {
-  await page.locator("button[class='create-new']").click();
+  page.locator("button[class='create-new']").click();
   // grab title input element
   const new_todo_title = page.getByPlaceholder('Your todo title');
   // grab description input element
@@ -181,7 +194,7 @@ async function addDefaultTodos(page) {
   for (const items of TODO_ITEMS) {
     await new_todo_title.fill(items.title);
     await new_todo_desc.fill(items.desc);
-    await page.locator('input[id="sumbit-button"]').click();
+    page.locator('input[id="sumbit-button"]').click();
   }
   await page.waitForTimeout(3000);
 }
