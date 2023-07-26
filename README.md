@@ -157,3 +157,7 @@ RTL was used to assert the presence of components and their data.
 ![rtl-tests](public/assets/rtl-tests.png)
 
 ## CI/CD with Github Actions
+
+Continuous Integration and Continuous Delivery/Continuous Deployment using Github Actions and workflows.
+
+![cicd](public/assets/cicd.png)
