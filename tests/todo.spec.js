@@ -70,19 +70,19 @@ test.describe('New Todo', () => {
     // grab description input element
     const new_todo_desc = page.getByPlaceholder('Your todo description');
     // click the create button
-    await page.locator("button[class='create-new']").click();
+    page.locator("button[class='create-new']").click();
     // fill title input with first title in array
     await new_todo_title.fill(TODO_ITEMS[0].title);
     // fill description input with first description in array
     await new_todo_desc.fill(TODO_ITEMS[0].desc);
     // click submit todo
-    await page.locator('input[id="sumbit-button"]').click();
+    page.locator('input[id="sumbit-button"]').click();
     // assert title text matches
     await new_todo_title.fill(TODO_ITEMS[1].title);
     // fill description input with first description in array
     await new_todo_desc.fill(TODO_ITEMS[1].desc);
     // click submit todo
-    await page.locator('input[id="sumbit-button"]').click();
+    page.locator('input[id="sumbit-button"]').click();
     // assert title text matches
     await expect(page.locator('h2[class="task-title"]').nth(1)).toHaveText(TODO_ITEMS[1].title);
     // assert description text matches

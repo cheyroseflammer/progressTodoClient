@@ -12,7 +12,7 @@
     },
     {
       "name": "AuthToken",
-      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlbW9AZW1haWwuY29tIiwiaWF0IjoxNjkwNDExMzM3LCJleHAiOjE2OTA0MTQ5Mzd9._rCo0Si9xJEenw9f06iDVBGCf6k0NGWUMe0MueGtc20",
+      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlbW9AZW1haWwuY29tIiwiaWF0IjoxNjkwNDExNjg2LCJleHAiOjE2OTA0MTUyODZ9.Msm4TlC-D0qEox2E6tBTZERo0kOoIjX-NhTB1660FG0",
       "domain": "progress-todo-app.vercel.app",
       "path": "/",
       "expires": -1,
