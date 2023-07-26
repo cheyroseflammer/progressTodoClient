@@ -9,7 +9,7 @@ export default async function globalSetup() {
   await page.locator('input[type="password"]').fill('testing');
   await page.locator('input[type="submit"]').click();
   //  save state
+  await page.waitForTimeout(7000);
   await page.context().storageState({ path: './LoginAuth.json' });
-
   await browser.close();
 }
