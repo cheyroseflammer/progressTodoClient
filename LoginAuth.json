@@ -1,4 +1,25 @@
 {
-  "cookies": [],
+  "cookies": [
+    {
+      "name": "Email",
+      "value": "demo%40email.com",
+      "domain": "progress-todo-app.vercel.app",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "AuthToken",
+      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlbW9AZW1haWwuY29tIiwiaWF0IjoxNjkwNDA2NzE1LCJleHAiOjE2OTA0MTAzMTV9.9LJjK67BlLvPfRV3MxZF5flByB7WRaWo1FucDkoFb-M",
+      "domain": "progress-todo-app.vercel.app",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
   "origins": []
 }

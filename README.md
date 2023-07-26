@@ -1,6 +1,6 @@
 # Todos App Client ☑️
 
-This is a CRA manipulating data from an Express API backend connected to a PostgreSQL database.
+This is a CRA manipulating data from an Express API backend connected to a PostgreSQL database using Knexjs.
 
 **[Server Documentation](https://github.com/cheyroseflammer/progressTodoServer/blob/main/README.md)**
 
@@ -12,7 +12,9 @@ Clone App: `git clone https://github.com/cheyroseflammer/progressTodoClient.git`
 
 Install dependencies: `npm install`
 
-Tests: `npm test` (all tests should pass)
+Component Render Tests: `cd src` & `npm test` (all tests should pass)
+
+E2E Tests on Production: `npx playwright text`
 
 Start client: `npm start`
 
@@ -56,93 +58,102 @@ Start client: `npm start`
 
 **Get Data** 🟢
 
-```
-  const getData = async () => {
-    try {
-      const response = await fetch(`API_URL/${userEmail}`);
-      const json = await response.json();
-      setTodos(json.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
+```js
+const getData = async () => {
+  try {
+    const response = await fetch(`API_URL/${userEmail}`);
+    const json = await response.json();
+    setTodos(json.data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+useEffect(() => {
+  getData();
+}, []);
 ```
 
 **Post Data** 🟢
 
-```
-  const postData = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch('API_URL', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ data }),
-      });
-      if (response.status === 201) {
-        console.log('Todo posted sucessfully');
-        getData();
-      }
-    } catch (error) {
-      console.log(error);
+```js
+const postData = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await fetch('API_URL', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ data }),
+    });
+    if (response.status === 201) {
+      console.log('Todo posted sucessfully');
+      getData();
     }
-  };
-
+  } catch (error) {
+    console.log(error);
+  }
+};
 ```
 
 **Put Data** 🟡
 
-```
-  const putData = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch(
-        `API_URL/${todo.user_email}/${todo.todo_id}`,
-        {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ data }),
-        }
-      );
-      if (response.status === 200) {
-        console.log('Todo updated sucessfully');
-        getData();
-      }
-    } catch (error) {
-      console.log(error);
+```js
+const putData = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await fetch(`API_URL/${todo.user_email}/${todo.todo_id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ data }),
+    });
+    if (response.status === 200) {
+      console.log('Todo updated sucessfully');
+      getData();
     }
-  };
-
+  } catch (error) {
+    console.log(error);
+  }
+};
 ```
 
 **Delete Data** 🔴
 
-```
+```js
 const deleteData = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch(
-        `API_URL/${todo.user_email}/${todo.todo_id}`,
-        {
-          method: 'DELETE',
-        }
-      );
-      if (response.status === 204) {
-        console.log('todo deleted successfully');
-        getData();
-      }
-    } catch (error) {
-      console.log(error);
+  e.preventDefault();
+  try {
+    const response = await fetch(`API_URL/${todo.user_email}/${todo.todo_id}`, {
+      method: 'DELETE',
+    });
+    if (response.status === 204) {
+      console.log('todo deleted successfully');
+      getData();
     }
-  };
+  } catch (error) {
+    console.log(error);
+  }
+};
 ```
 
-## Unit & Mock Testing
+## E2E Tests with Playwright
 
-Unit testing with React testing library. API fetch testing with Jest mocks.
+Using Playwright all end to end and smoke tests were created to test full functionailty of the production build of the website.
 
-<!-- ![test-screenshot](images/testSS1.png) -->
+Tests include:
+
+- ✅ app should allow for new todos to be added
+- ✅ apps modal should close once the submit button is hit
+- ✅ todos should append to bottom of list
+- ✅ white space should be trimmed from input on submit
+- ✅ app should allow for todos to be edited
+- ✅ edit should cancel when interacting with close X
+- ✅ app should allow for todos to be deleted
+
+![playwright-tests](../client/public/assets/tests.png)
+
+## Component Render Tests with React Testing Library
+
+RTL was used to assert the presence of components and their data.
+
+![rtl-tests](../client/public/assets/rtl-tests.png)
+
+## CI/CD with Github Actions
