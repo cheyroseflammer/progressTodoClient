@@ -24,27 +24,27 @@ Start client: `npm start`
 
 - **Sign Up** - High Priority 🔴
 
-![signup-gif](assets/signup.gif)
+![signup-gif](../client/public/assets/signup.gif)
 
 - **Create New Todo** - High Priority 🔴
 
-![new-todo](assets/newTodo.gif)
+![new-todo](../client/public/assets/newTodo.gif)
 
 - **Delete Todo** - High Priority 🔴
 
-![delete-todo](assets/delete.gif)
+![delete-todo](../client/public/assets/delete.gif)
 
 - **Edit Todo** - High Priority 🔴
 
-![edit-todo](assets/edit.gif)
+![edit-todo](../client/public/assets/edit.gif)
 
 - **Sign Out** - High Priority 🔴
 
-![signout](assets/signout.gif)
+![signout](../client/public/assets/signout.gif)
 
 - **Login** - High Priority 🔴
 
-![login](assets/login.gif)
+![login](../client/public/assets/login.gif)
 
 🟨 In Progress
 

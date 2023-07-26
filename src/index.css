@@ -5,7 +5,8 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', san-serif;
-  background-color: #000000;
+  /* background-color: #000000; */
+  background-image: url('../public/assets/grain.png');
   background-repeat: repeat;
   color: #e2e2d7;
   display: flex;
